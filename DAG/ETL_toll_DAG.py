@@ -71,5 +71,5 @@ transform_data= BashOperator(
     dag=dag
 )
 
-# defining the pipeline
-unzip_data >> extract_data_from_csv >> extract_data_from_tsv >> extract_data_from_fixed_width >> consolidate_data >> transform_data
+# defining the pipeline dependencies
+unzip_data >> [extract_data_from_csv, extract_data_from_tsv, extract_data_from_fixed_width] >> consolidate_data >> transform_data
